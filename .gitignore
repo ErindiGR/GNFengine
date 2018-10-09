@@ -1,0 +1,12 @@
+bin/
+third_party/libs/freetype/freetype.lib
+third_party/libs/glew/glew32.lib
+third_party/libs/glew/glew32s.lib
+third_party/libs/sdl/SDL2.lib
+third_party/libs/sdl/SDL2main.lib
+build/debug_gl/
+build/cour.ttf
+build/SDL2.dll
+build/freetype.dll
+build/glew32.dll
+build/game.exe

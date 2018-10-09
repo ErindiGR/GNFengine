@@ -1,0 +1,14 @@
+TODO:
+
+>> make mesh degenerate after it hasnt been drawn for
+a frame.[]
+
+>> add texture supprot(std_image).[]
+
+>> add cube texture support.[]
+
+>> make gui objects(label,button,text area).[]
+
+>> add command line support.[]
+
+>> add fbx simple inporter.[]
