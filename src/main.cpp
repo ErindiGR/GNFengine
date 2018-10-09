@@ -1,6 +1,4 @@
 #include <iostream>
-#include <thread>
-#include <mutex>
 
 #include "commun.h"
 
@@ -8,9 +6,6 @@
 #include "window.h"
 #include "input.h"
 #include "time.h"
-
-#include "world.h"
-#include "entity.h"
 
 int main(int argc,char* argv[])
 {

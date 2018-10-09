@@ -15,15 +15,6 @@ box::box()
 
     _shader = shader_library.create("simple.glsl");
 
-    std::vector<uint8> d = 
-    {
-        0,0,0,255,255,255,255,255,255,0,0,0,
-        0,0,0,255,255,255,255,255,255,0,0,0,
-        0,0,0,255,255,255,255,255,255,0,0,0,
-        0,0,0,255,255,255,255,255,255,0,0,0,
-    };
-
-    //_texture = texture_library.create("box",d,4,4);
     _texture = texture_library.create("tile128.bmp");
 
 
