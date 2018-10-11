@@ -5,13 +5,15 @@ gnfengine is a modern c++ game engine as the name clearly implies
 
 glm:  https://github.com/g-truc/glm
 
-assimp: https://github.com/assimp/assimp
-
 glew: https://github.com/nigels-com/glew
 
 freetype: https://www.freetype.org/
 
 sdl2: https://www.libsdl.org/
+
+json: https://github.com/nlohmann/json
+
+obj-loader: https://github.com/Bly7/OBJ-Loader
 
 
 # build
