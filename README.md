@@ -13,6 +13,10 @@ freetype: https://www.freetype.org/
 
 sdl2: https://www.libsdl.org/
 
+json: https://github.com/nlohmann/json
+
+obj-loader: https://github.com/Bly7/OBJ-Loader
+
 
 # build
 
