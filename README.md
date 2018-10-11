@@ -1,5 +1,5 @@
 # GNFengine (Going Nowhere Faster Engine)
-gnfengine is a modern c++ game engine
+gnfengine is a modern c++ game engine as the name implies
 
 
 # third party
