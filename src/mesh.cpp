@@ -1,6 +1,9 @@
 #include "mesh.h"
 
 
+#include <string>
+
+
 #include "renderer.h"
 
 
@@ -10,7 +13,7 @@ library<mesh> mesh_library(1024u);
 
 mesh::mesh(std::string path)
 {
-
+    load_file(path);
 }
 
 mesh::~mesh()
@@ -85,3 +88,22 @@ void mesh::draw()
 
 
 
+void mesh::load_file(std::string path)
+{
+    std::string ext = path.substr(path.find("."));
+
+    if(ext == "obj")
+    {
+            load_obj(path);
+    }
+    else
+    {
+        std::cout<< "failed to load mesh file. file type unknown\n";
+        return;
+    }
+}
+
+void mesh::load_obj(std::string path)
+{
+    //todo:something
+}

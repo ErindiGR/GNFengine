@@ -41,6 +41,9 @@ class mesh
     bool _generated;
     bool _placeholder[3];
 
+    void load_file(std::string path);
+    void load_obj(std::string path);
+
 public:
 
     mesh(std::string path);
