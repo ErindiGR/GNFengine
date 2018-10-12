@@ -1,14 +1,7 @@
-TODO:
+cube texture support
 
->> make mesh degenerate after it hasnt been drawn for
-a frame.[]
+gui object oriented
 
->> add texture supprot(std_image).[]
+command line support
 
->> add cube texture support.[]
-
->> make gui objects(label,button,text area).[]
-
->> add command line support.[]
-
->> add fbx simple inporter.[]
+fbx simple inporter
