@@ -10,3 +10,4 @@ build/SDL2.dll
 build/freetype.dll
 build/glew32.dll
 build/game.exe
+src/roadmap.txt
