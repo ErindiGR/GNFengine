@@ -6,6 +6,8 @@
 
 #include "renderer.h"
 
+#include <obj/OBJ_Loader.h>
+
 
 
 library<mesh> mesh_library(1024u);
@@ -103,7 +105,36 @@ void mesh::load_file(std::string path)
     }
 }
 
+
+#define TOVEC3(vec) glm::vec3(vec.X,vec.Y,vec.Z);
+#define TOVEC2(vec) glm::vec2(vec.X,vec.Y);
+
 void mesh::load_obj(std::string path)
 {
-    //todo:something
+    objl::Loader loader;
+    loader.LoadFile(path);
+    
+
+    uint l = 0;
+    
+    l = loader.LoadedVertices.size();
+    _vertex.reserve(l);
+
+    for(uint i=0;i<l;i++)
+    {
+        _vertex[i].position = TOVEC3(loader.LoadedVertices[i].Position);
+        _vertex[i].normal = TOVEC3(loader.LoadedVertices[i].Normal);
+        _vertex[i].texcoord = TOVEC2(loader.LoadedVertices[i].TextureCoordinate);
+    }
+
+
+    l = loader.LoadedIndices.size();
+    _indices.reserve(l);
+
+    for(uint i=0;i<l;i++)
+    {
+        _indices[i] = loader.LoadedIndices[i];
+    }
+
+
 }
