@@ -44,3 +44,20 @@ const std::string entity::get_class_name()
 {
     return _class_name;
 }
+
+
+json entity::serialize() 
+{
+    json serialized;
+
+    serialized["class_name"] = _class_name;
+    serialized["transform"] = _transform.serialize();
+
+
+    return serialized;
+}
+
+void entity::deserialize(json& serialized)
+{
+    _transform.deserialize(serialized["transform"]);
+}

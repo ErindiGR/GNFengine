@@ -241,6 +241,8 @@ public:
     static void uniformi(uint location,int i);
     static void gnerate_mipmap(uint target);
     static void delete_texture(uint count,uint* textures);
+    static void delete_vertexarray(uint count,uint* array);
+    static void delete_buffer(uint count,uint* buffer);
 
     static void simple_quad(float sx,float sy,float ex,float ey);
     static void simple_text(float x,float y,float width,float height,uint shader,std::string text);

@@ -3,10 +3,12 @@
 
 #include <string>
 
+#include "object.h"
 #include "transform.h"
 
 
-class entity
+class entity :
+    public object
 {
     transform _transform;
 
@@ -18,6 +20,9 @@ public:
 
     virtual void update();
     virtual void draw();
+
+    json serialize();
+    void deserialize(json& serialized);
 
     void set_transform(transform& t);
     transform& get_transform();

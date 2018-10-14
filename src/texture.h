@@ -9,6 +9,7 @@
 #include "resource.h"
 
 
+
 class texture
 {
 
@@ -31,7 +32,6 @@ public:
     void gen();
     void degen();
     void bind();
-
 
     inline const uint get_id(){return _id;}
 

@@ -61,6 +61,7 @@
         "xtree": "cpp",
         "*.rh": "cpp",
         "fstream": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "numeric": "cpp"
     }
 }

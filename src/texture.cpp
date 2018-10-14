@@ -15,9 +15,12 @@ texture::texture(std::string path)
 
     if(!surface)
     {
+        std::cout << "failed to load: " << path << std::endl;
         SDL_FreeSurface(surface);
         return;
     }
+
+    std::cout << "loading file: " << path << std::endl;
 
     _width = surface->w;
     _height = surface->h;
@@ -30,9 +33,15 @@ texture::texture(std::string path)
         _data.push_back(((uint8*)surface->pixels)[i]);
 
 
-    std::cout << _width <<":"<< _height <<":" << (uint)surface->format->BytesPerPixel<<std::endl;
+    std::cout 
+    << "width: "    << _width                               << std::endl
+    << "height: "   << _height                              << std::endl
+    << "channels: " << (uint)surface->format->BytesPerPixel << std::endl;
     
     SDL_FreeSurface(surface);
+
+    std::cout << "file: " << path << " loaded successfully" << std::endl;
+
 
     gen();
 }

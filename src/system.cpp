@@ -42,7 +42,7 @@ void system::init()
     camera::get_current().lock()->get_transform().position = glm::vec3(3,0,-4);
 
     
-    for(int j=0;j<128;j++)
+    for(int j=0;j<1;j++)
     for(int i=0;i<4;i++)
     {
         std::shared_ptr<box> b1 = std::make_shared<box>();

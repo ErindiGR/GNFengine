@@ -15,6 +15,8 @@ library<mesh> mesh_library(1024u);
 
 mesh::mesh(std::string path)
 {
+    _generated = false;
+
     load_file(path);
 }
 
@@ -37,6 +39,8 @@ void mesh::gen()
 {
     if(_generated)
         return;
+
+    std::cout << "generating..." << std::endl;
 
     uint indices_size  = _indices.size() * sizeof(_indices[0]);
     uint vertex_size   = _vertex.size() * sizeof(_vertex[0]);
@@ -75,8 +79,8 @@ void mesh::degen()
     if(!_generated)
         return;
 
-     //renderer::delete_vertexarray(1,&_vao);
-    //renderer::delete_buffer(N,&_vbo[0]);
+    renderer::delete_vertexarray(1,&_vao);
+    renderer::delete_buffer(N,&_vbo[0]);
 
     _generated = false;
 }
@@ -94,9 +98,9 @@ void mesh::load_file(std::string path)
 {
     std::string ext = path.substr(path.find("."));
 
-    if(ext == "obj")
+    if(ext == "obj" || 1)
     {
-            load_obj(path);
+        load_obj(path);
     }
     else
     {
@@ -111,6 +115,8 @@ void mesh::load_file(std::string path)
 
 void mesh::load_obj(std::string path)
 {
+    std::cout << "loading file: " << path << std::endl;
+
     objl::Loader loader;
     loader.LoadFile(path);
     
@@ -122,9 +128,17 @@ void mesh::load_obj(std::string path)
 
     for(uint i=0;i<l;i++)
     {
-        _vertex[i].position = TOVEC3(loader.LoadedVertices[i].Position);
-        _vertex[i].normal = TOVEC3(loader.LoadedVertices[i].Normal);
-        _vertex[i].texcoord = TOVEC2(loader.LoadedVertices[i].TextureCoordinate);
+        vertex a;
+        a.position = TOVEC3(loader.LoadedVertices[i].Position);
+        a.normal = TOVEC3(loader.LoadedVertices[i].Normal);
+        a.texcoord = TOVEC2(loader.LoadedVertices[i].TextureCoordinate);
+
+        _vertex.push_back(a);
+        //std::cout 
+        //<< a.position.x << ":"
+        //<< a.position.y << ":"
+        //<< a.position.z << std::endl;
+
     }
 
 
@@ -137,4 +151,10 @@ void mesh::load_obj(std::string path)
     }
 
 
+    std::cout << "file: " << path << " loaded successfully" << std::endl;
+
+    gen();
 }
+
+#undef TOVEC3
+#undef TOVEC2

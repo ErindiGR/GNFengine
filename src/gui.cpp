@@ -254,5 +254,5 @@ void gui::init()
 
 
 
-    _text_shader = new shader("shader.txt");
+    _text_shader = new shader("text_shader.glsl");
 }

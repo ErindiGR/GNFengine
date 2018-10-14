@@ -367,6 +367,14 @@ void renderer::delete_texture(uint count,uint* textures)
 {
     glDeleteTextures(count,textures);
 }
+void renderer::delete_vertexarray(uint count,uint* array)
+{
+    glDeleteVertexArrays(count,array);
+}
+void renderer::delete_buffer(uint count,uint* buffer)
+{
+    glDeleteBuffers(count,buffer);
+}
 
 
 

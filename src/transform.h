@@ -6,8 +6,10 @@
 #include <glm/gtc/quaternion.hpp>
 #include <glm/vec4.hpp>
 
+#include "object.h"
 
-class transform
+class transform:
+    public object
 {
 
 public:
@@ -18,6 +20,11 @@ public:
 
 
     transform();
+
+
+    json serialize();
+    void deserialize(json& serialized);
+
 
     glm::mat4 get_model_matrix();
 

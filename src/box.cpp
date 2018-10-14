@@ -17,75 +17,7 @@ box::box()
 
     _texture = texture_library.create("tile128.bmp");
 
-
-    std::vector<vertex> v;
-    std::vector<uint16> i;
-
-    v.reserve(8);
-    i.reserve(36);
-
-    v.push_back({glm::vec3(1,1,1),glm::vec3(1,0,0),glm::vec2(1,1)});//0
-    v.push_back({glm::vec3(-1,1,1),glm::vec3(1,0,0),glm::vec2(0,1)});//1
-   
-    v.push_back({glm::vec3(1,-1,1),glm::vec3(1,0,0),glm::vec2(1,0)});//2
-    v.push_back({glm::vec3(-1,-1,1),glm::vec3(1,0,0),glm::vec2(0,0)});//3
-   
-    v.push_back({glm::vec3(1,1,-1),glm::vec3(1,0,0),glm::vec2(1,1)});//4
-    v.push_back({glm::vec3(-1,1,-1),glm::vec3(1,0,0),glm::vec2(0,1)});//5
-   
-    v.push_back({glm::vec3(1,-1,-1),glm::vec3(1,0,0),glm::vec2(1,0)});//6
-    v.push_back({glm::vec3(-1,-1,-1),glm::vec3(1,0,0),glm::vec2(0,0)});//7
-
-
-    i.push_back(0);
-    i.push_back(1);
-    i.push_back(3);
-
-    i.push_back(2);
-    i.push_back(0);
-    i.push_back(3);
-
-    i.push_back(4);
-    i.push_back(0);
-    i.push_back(2);
-
-    i.push_back(6);
-    i.push_back(4);
-    i.push_back(2);
-
-    i.push_back(5);
-    i.push_back(4);
-    i.push_back(6);
-
-    i.push_back(7);
-    i.push_back(5);
-    i.push_back(6);
-
-    i.push_back(1);
-    i.push_back(5);
-    i.push_back(7);
-
-    i.push_back(3);
-    i.push_back(1);
-    i.push_back(7);
-
-    i.push_back(4);
-    i.push_back(5);
-    i.push_back(1);
-
-    i.push_back(0);
-    i.push_back(4);
-    i.push_back(1);
-
-    i.push_back(6);
-    i.push_back(2);
-    i.push_back(3);
-
-    i.push_back(7);
-    i.push_back(6);
-    i.push_back(3);
-
-    _mesh = mesh_library.create("box",v,i);
+    _mesh = mesh_library.create("box.obj");
 }
 
 box::~box()
