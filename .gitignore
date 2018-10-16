@@ -5,6 +5,12 @@ third_party/libs/glew/glew32s.lib
 third_party/libs/sdl/SDL2.lib
 third_party/libs/sdl/SDL2main.lib
 build/debug_gl/
+build/Images/
+build/Shaders/
+build/OpenGL32.dll
+build/gliLog.txt
+build/gliConfig.ini
+build/gliInterceptLog.txt
 build/cour.ttf
 build/SDL2.dll
 build/freetype.dll

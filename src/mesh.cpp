@@ -138,6 +138,7 @@ void mesh::load_obj(std::string path)
         //<< a.position.x << ":"
         //<< a.position.y << ":"
         //<< a.position.z << std::endl;
+        
 
     }
 
@@ -147,7 +148,9 @@ void mesh::load_obj(std::string path)
 
     for(uint i=0;i<l;i++)
     {
-        _indices[i] = loader.LoadedIndices[i];
+        _indices.push_back(loader.LoadedIndices[i]);
+
+        //std::cout << _indices[i] << std::endl;
     }
 
 

@@ -10,18 +10,8 @@ class object
     
 public:
 
-    virtual json serialize()
-    {
-        json serialized;
-
-        serialized["class_name"] = "object";
-
-        return serialized;
-    }
-    virtual void deserialize(json& serialized)
-    {
-
-    }
+    virtual json serialize()=0;
+    virtual void deserialize(json& serialized)=0;
 
 };
 
