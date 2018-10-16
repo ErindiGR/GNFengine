@@ -7,7 +7,7 @@
 class camera :
     public entity
 {
-    static std::shared_ptr<camera> _current;
+    static std::weak_ptr<entity> _current;
 
 
     float _fov;
@@ -20,11 +20,16 @@ class camera :
     
 public:
 
-    static std::weak_ptr<camera> get_current();
-    static void set_current(std::shared_ptr<camera> cam);
+    static std::weak_ptr<entity> get_current();
+    static void set_current(std::weak_ptr<entity> cam);
 
     camera();
     ~camera();
+
+
+    json serialize();
+    void deserialize(json& serialized);
+
 
     inline float get_fov(){return _fov;}
     inline void set_fov(float f){_fov = f;}

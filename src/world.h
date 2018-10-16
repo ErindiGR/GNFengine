@@ -6,9 +6,11 @@
 #include <vector>
 
 #include "commun.h"
+#include "object.h"
 
 
-class world
+class world :
+    public object
 {
     std::vector<std::shared_ptr<class entity>> _entities;
 
@@ -18,6 +20,14 @@ public:
 
     world();
     ~world();
+    
+
+    void load(std::string path);
+    void save(std::string path);
+    
+    json serialize();
+    void deserialize(json& serialized);
+
 
     static std::weak_ptr<world> get_current();
     static void set_current(std::shared_ptr<world> wrld);

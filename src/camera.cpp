@@ -2,14 +2,14 @@
 
 #include "window.h"
 
-std::shared_ptr<camera> camera::_current;
+std::weak_ptr<entity> camera::_current;
 
-std::weak_ptr<camera> camera::get_current()
+std::weak_ptr<entity> camera::get_current()
 {
     return _current;
 }
 
-void camera::set_current(std::shared_ptr<camera> cam)
+void camera::set_current(std::weak_ptr<entity> cam)
 {
     _current = cam;
 }
@@ -34,4 +34,26 @@ glm::mat4 camera::get_perspective_view()
     glm::mat4 v = glm::lookAt(get_transform().position,get_transform().position + get_transform().get_forward(),get_transform().get_up());
 
     return p*v;
+}
+
+json camera::serialize() 
+{
+    json serialized;
+
+    serialized["class_name"] = get_class_name();
+    serialized["transform"] = get_transform().serialize();
+    serialized["fov"] = _fov;
+    serialized["near"] = _near;
+    serialized["far"] = _far;
+
+    return serialized;
+}
+
+void camera::deserialize(json& serialized)
+{
+    get_transform().deserialize(serialized["transform"]);
+    
+    _fov  = serialized["fov"];
+    _near = serialized["near"];
+    _far  = serialized["far"];
 }

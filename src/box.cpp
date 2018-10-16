@@ -36,7 +36,7 @@ void box::draw()
 {
     _shader.lock()->use();
 
-    glm::mat4 pv = camera::get_current().lock()->get_perspective_view();
+    glm::mat4 pv = std::dynamic_pointer_cast<camera>(camera::get_current().lock())->get_perspective_view();
     _shader.lock()->set_matrix4("pv",pv);
 
     glm::mat4 mm = get_transform().get_model_matrix();

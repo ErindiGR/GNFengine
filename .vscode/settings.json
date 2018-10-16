@@ -62,6 +62,9 @@
         "*.rh": "cpp",
         "fstream": "cpp",
         "sstream": "cpp",
-        "numeric": "cpp"
+        "numeric": "cpp",
+        "clocale": "cpp",
+        "forward_list": "cpp",
+        "valarray": "cpp"
     }
 }

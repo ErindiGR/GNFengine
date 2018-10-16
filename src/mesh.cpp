@@ -134,12 +134,11 @@ void mesh::load_obj(std::string path)
         a.texcoord = TOVEC2(loader.LoadedVertices[i].TextureCoordinate);
 
         _vertex.push_back(a);
+
         //std::cout 
         //<< a.position.x << ":"
         //<< a.position.y << ":"
         //<< a.position.z << std::endl;
-        
-
     }
 
 

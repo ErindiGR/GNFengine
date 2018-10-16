@@ -34,14 +34,6 @@ void system::init()
 
     world::set_current(std::make_shared<world>());
 
-    std::shared_ptr<camera> cam = std::make_shared<camera>();
-    world::get_current().lock()->spawn_entity(cam);
-
-    camera::set_current(cam);
-
-    camera::get_current().lock()->get_transform().position = glm::vec3(3,0,-4);
-
-    
     for(int j=0;j<128;j++)
     for(int i=0;i<4;i++)
     {
@@ -111,6 +103,15 @@ void system::draw()
         for(int i=0;i<sorted.size();i++)
             sorted[i].lock()->draw();
     }
+    else
+    {
+        std::vector<std::weak_ptr<entity>> entities = world::get_current().lock()->get_entities();
 
+        for(int i=0;i<entities.size();i++)
+            if(entities[i].lock()->get_class_name() == "camera")
+            {
+                camera::set_current(entities[i]);
+            }
+    }
 }
 
