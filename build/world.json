@@ -1,0 +1,26 @@
+{
+    "entities" :
+    [
+        {
+            "class_name" : "camera",
+            "transform" :
+            {
+                "position" : [0,0,-4],
+                "size" : [1,1,1],
+                "rotation" : [0,0,0,1]
+            },
+            "fov" : 90,
+            "near" : 0.1,
+            "far" : 1000
+        },
+        {
+            "class_name" : "box",
+            "transform" :
+            {
+                "position" : [0,0,0],
+                "size" : [1,1,1],
+                "rotation" : [0,0,0,1]
+            }
+        }
+    ]
+}

@@ -28,7 +28,7 @@ box::~box()
 
 void box::update()
 {
-    get_transform().position.y = sin(time::get_time() * 0.0001f) * 2.0f;
+    //get_transform().position.y = sin(time::get_time() * 0.0001f) * 2.0f;
 }
 
 
@@ -46,4 +46,19 @@ void box::draw()
 
     //glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
     _mesh.lock()->draw();
+}
+
+json box::serialize() 
+{
+    json serialized;
+
+    serialized["class_name"] = get_class_name();
+    serialized["transform"] = get_transform().serialize();
+
+    return serialized;
+}
+
+void box::deserialize(json& serialized)
+{
+    get_transform().deserialize(serialized["transform"]);
 }

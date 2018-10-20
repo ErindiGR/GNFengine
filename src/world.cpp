@@ -1,6 +1,7 @@
 #include "world.h"
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <fstream>
 
@@ -73,7 +74,7 @@ json world::serialize()
     json serialized;
 
     for(uint i=0;i<_entities.size();i++)
-        serialized["entities"][i] = _entities.lock()->serialze();
+        serialized["entities"][i] = _entities[i]->serialize();
 
 
     return serialized;
@@ -110,11 +111,11 @@ void world::deserialize(json& serialized)
 {
     _entities.clear();
 
-    for(uint i=0;i<serialized["entities"].as_array().size();i++)
+    for(uint i=0;i<serialized["entities"].size();i++)
     {
-        std::shared_ptr e = create_entity_form_str(serialized["entities"][i]["class_name"]);
+        std::shared_ptr<entity> e = create_entity_form_str(serialized["entities"][i]["class_name"]);
         
-        e.lock()->deserialize(serialized["entities"][i]);
+        e->deserialize(serialized["entities"][i]);
 
         _entities.push_back(e);
     }
@@ -133,7 +134,7 @@ void world::load(std::string path)
     std::ifstream file(path);
     
     json j;
-    path >> j;
+    file >> j;
 
     deserialize(j);
 }

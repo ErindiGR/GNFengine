@@ -26,6 +26,9 @@ public:
     void update();
     void draw();
 
+    json serialize();
+    void deserialize(json& serialized);
+
 };
 
 

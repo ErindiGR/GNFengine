@@ -34,6 +34,9 @@ void system::init()
 
     world::set_current(std::make_shared<world>());
 
+    world::get_current().lock()->load("world.json");
+
+    /*
     for(int j=0;j<128;j++)
     for(int i=0;i<4;i++)
     {
@@ -42,6 +45,7 @@ void system::init()
         b1->get_transform().position.x = 2*i;
         world::get_current().lock()->spawn_entity(b1);
     }
+    */
 }
 
 void system::term()
